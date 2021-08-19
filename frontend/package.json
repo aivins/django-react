@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "start": "parcel serve index.html",
+    "django": "parcel serve --hmr-port 9999 index-django.html",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.4.7",
+    "bootstrap": "5.0.2",
+    "graphql": "^15.5.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.0.0-beta.4",
+    "react-bootstrap-icons": "^1.5.0",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-table": "^7.7.0",
+    "src": "^1.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "parcel": "^2.0.0-rc.0"
+  }
+}

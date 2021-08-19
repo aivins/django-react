@@ -1,0 +1,14 @@
+{
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "runServices": ["app"],
+  "workspaceFolder": "/opt/python",
+  "postCreateCommand": "/opt/python/.devcontainer/post_create.sh",
+  "extensions": [
+    "ms-python.python",
+    "ms-azuretools.vscode-docker",
+    "bibhasdn.django-html",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode"
+  ]
+}

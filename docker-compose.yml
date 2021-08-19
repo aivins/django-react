@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: backend
+      target: development
+    command: /bin/bash -c 'while true; do sleep 1; done'
+    environment:
+      - DJANGO_SETTINGS_MODULE=djangoreact.settings
+      - DJANGO_DEBUG=${DJANGO_DEBUG:-1}
+      - DJANGO_SQLITEDB_PATH=/tmp/db.sqlite3
+      - POETRY_VIRTUALENVS_CREATE={POETRY_VIRTUALENVS_CREATE:-0}
+      - PYTHONPATH=/opt/python/backend:${PYTHONPATH:-""}
+    working_dir: /opt/python/backend
+    volumes:
+      - .:/opt/python/
+    ports:
+      - "8001:8001"
+    expose:
+      - "8001"

@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/venv": true,
+    "**/*.sqlite3": true
+  },
+  "search.exclude": {
+    "yarn.lock": true,
+    "poetry.lock": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.acceptSuggestionOnCommitCharacter": false
+}
