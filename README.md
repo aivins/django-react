@@ -34,8 +34,8 @@ Install poetry for your python environment: https://python-poetry.org/docs/#inst
 ```
 cd backend
 poetry install
-./manage.py install_fixtures
-./manage.py runserver 0.0.0.0:8001
+poetry run ./manage.py install_fixtures
+poetry run ./manage.py runserver 0.0.0.0:8001
 ```
 
 GraphiQL will be available on http://0.0.0.0:8001/graphql
@@ -49,8 +49,8 @@ GraphiQL will be available on http://0.0.0.0:8001/graphql
 Use Visual Studio code with the VSCode Remote Containers extension. Open top-level project in VS Code. Choose **Reopen In Remote Container**. Open a terminal and run with:
 
 ```
-./manage.py install_fixtures
-./manage.py runserver 0.0.0.0:8001
+django-admin install_fixtures
+django-admin runserver 0.0.0.0:8001
 ```
 
 ## Run frontend
