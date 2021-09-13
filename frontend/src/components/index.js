@@ -14,6 +14,11 @@ import Medals from "./Medals";
 import Athletes from "./Athletes";
 import Sports from "./Sports";
 
+if (module.hot) {
+  console.log("Enable HMR");
+  module.hot.accept();
+}
+
 export {
   App,
   Button,
