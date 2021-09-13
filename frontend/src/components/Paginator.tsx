@@ -14,13 +14,20 @@ const Paginator = ({
 }) => (
   <Pagination>
     <Pagination.First onClick={() => gotoPage(0)} />
-    {canPreviousPage && <Pagination.Prev onClick={() => previousPage()} />}
+    <Pagination.Prev
+      disabled={!canPreviousPage}
+      onClick={() => previousPage()}
+    />
     {paginatorOffset >= maxPaginatorPageLinks && (
       <Pagination.Ellipsis
         onClick={() => gotoPage(paginatorOffset - maxPaginatorPageLinks)}
       />
     )}
-    {[...Array(maxPaginatorPageLinks).keys()]
+    {[
+      ...Array(
+        pageCount < maxPaginatorPageLinks ? pageCount : maxPaginatorPageLinks
+      ).keys(),
+    ]
       .map((i) => i + paginatorOffset)
       .map((i) => (
         <Pagination.Item
@@ -36,7 +43,7 @@ const Paginator = ({
         onClick={() => gotoPage(paginatorOffset + maxPaginatorPageLinks)}
       />
     )}
-    {canNextPage && <Pagination.Next onClick={() => nextPage()} />}
+    <Pagination.Next disabled={!canNextPage} onClick={() => nextPage()} />
     <Pagination.Last onClick={() => gotoPage(pageCount - 1)} />
   </Pagination>
 );
