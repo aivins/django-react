@@ -6,7 +6,9 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import GraphqlProvider from "../lib/client";
+import { RelayEnvironmentProvider } from "react-relay/hooks";
+import { RelayEnvironment } from "../environment";
+
 import Styles from "../containers/Styles";
 import MedalsPage from "./MedalsPage";
 import CountriesPage from "./CountriesPage";
@@ -16,7 +18,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 
 const App = () => (
-  <GraphqlProvider>
+  <RelayEnvironmentProvider environment={RelayEnvironment}>
     <Styles>
       <Router>
         <Navbar />
@@ -39,6 +41,6 @@ const App = () => (
         </Switch>
       </Router>
     </Styles>
-  </GraphqlProvider>
+  </RelayEnvironmentProvider>
 );
 export default App;

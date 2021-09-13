@@ -125,7 +125,9 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GRAPHENE = {
-    "SCHEMA": "app.schema.schema"
+    'SCHEMA': 'app.schema.schema',
+    'SCHEMA_OUTPUT': '../frontend/schema.graphql',
+    'SCHEMA_INDENT': 2,
 }
 
 CORS_ALLOW_ALL_ORIGINS = True

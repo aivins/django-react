@@ -5,3 +5,4 @@ venv
 *.pyc
 __pycache__
 .parcel-cache
+__generated__

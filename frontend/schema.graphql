@@ -1,0 +1,127 @@
+schema {
+  query: Query
+}
+
+enum AthleteGender {
+  M
+  W
+}
+
+type AthleteNode implements Node {
+  id: ID!
+  name: String!
+  country: CountryNode!
+  gender: AthleteGender!
+  events(offset: Int, before: String, after: String, first: Int, last: Int, sport_Name: String, sport_Name_Icontains: String, sport_Name_Istartswith: String): EventNodeConnection!
+  medals(offset: Int, before: String, after: String, first: Int, last: Int, medal: String, medal_Icontains: String, medal_Istartswith: String): MedalNodeConnection!
+}
+
+type AthleteNodeConnection {
+  pageInfo: PageInfo!
+  edges: [AthleteNodeEdge]!
+}
+
+type AthleteNodeEdge {
+  node: AthleteNode
+  cursor: String!
+}
+
+type CountryNode implements Node {
+  id: ID!
+  name: String!
+  code: String!
+  athletes(offset: Int, before: String, after: String, first: Int, last: Int, name: String, name_Icontains: String, name_Istartswith: String): AthleteNodeConnection!
+}
+
+type CountryNodeConnection {
+  pageInfo: PageInfo!
+  edges: [CountryNodeEdge]!
+}
+
+type CountryNodeEdge {
+  node: CountryNode
+  cursor: String!
+}
+
+enum EventGender {
+  M
+  W
+}
+
+type EventNode implements Node {
+  id: ID!
+  sport: SportNode!
+  gender: EventGender!
+}
+
+type EventNodeConnection {
+  pageInfo: PageInfo!
+  edges: [EventNodeEdge]!
+}
+
+type EventNodeEdge {
+  node: EventNode
+  cursor: String!
+}
+
+enum MedalMedal {
+  GOLD
+  SILVER
+  BRONZE
+}
+
+type MedalNode implements Node {
+  id: ID!
+  medal: MedalMedal!
+  event: EventNode!
+  athlete: AthleteNode!
+}
+
+type MedalNodeConnection {
+  pageInfo: PageInfo!
+  edges: [MedalNodeEdge]!
+}
+
+type MedalNodeEdge {
+  node: MedalNode
+  cursor: String!
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Query {
+  country(id: ID!): CountryNode
+  countries(offset: Int, before: String, after: String, first: Int, last: Int, name: String, name_Icontains: String, name_Istartswith: String): CountryNodeConnection
+  medal(id: ID!): MedalNode
+  medals(offset: Int, before: String, after: String, first: Int, last: Int, medal: String, medal_Icontains: String, medal_Istartswith: String): MedalNodeConnection
+  athlete(id: ID!): AthleteNode
+  athletes(offset: Int, before: String, after: String, first: Int, last: Int, name: String, name_Icontains: String, name_Istartswith: String): AthleteNodeConnection
+  sport(id: ID!): SportNode
+  sports(offset: Int, before: String, after: String, first: Int, last: Int, name: String, name_Icontains: String, name_Istartswith: String): SportNodeConnection
+  event(id: ID!): EventNode
+  events(offset: Int, before: String, after: String, first: Int, last: Int, sport_Name: String, sport_Name_Icontains: String, sport_Name_Istartswith: String): EventNodeConnection
+}
+
+type SportNode implements Node {
+  id: ID!
+  name: String!
+}
+
+type SportNodeConnection {
+  pageInfo: PageInfo!
+  edges: [SportNodeEdge]!
+}
+
+type SportNodeEdge {
+  node: SportNode
+  cursor: String!
+}
