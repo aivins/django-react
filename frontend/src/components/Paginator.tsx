@@ -1,6 +1,17 @@
 import React from "react";
+import { Pagination } from "react-bootstrap";
 
-const Paginator = () => (
+const Paginator = ({
+  pageIndex,
+  pageCount,
+  canNextPage,
+  nextPage,
+  gotoPage,
+  canPreviousPage,
+  previousPage,
+  paginatorOffset,
+  maxPaginatorPageLinks,
+}) => (
   <Pagination>
     <Pagination.First onClick={() => gotoPage(0)} />
     {canPreviousPage && <Pagination.Prev onClick={() => previousPage()} />}
@@ -30,4 +41,4 @@ const Paginator = () => (
   </Pagination>
 );
 
-export default Pagination;
+export default Paginator;

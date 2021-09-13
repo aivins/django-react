@@ -46,11 +46,10 @@ const DataTable = ({
     usePagination
   );
 
-  const paginate = pageCount > 1;
-  const maxPaginatorPageLinks = 10;
-  const paginatorOffset =
-    Math.floor(pageIndex / maxPaginatorPageLinks) * maxPaginatorPageLinks;
-  console.log({ pageIndex, maxPaginatorPageLinks, paginatorOffset });
+  // const paginate = pageCount > 1;
+  // const maxPaginatorPageLinks = 10;
+  // const paginatorOffset =
+  //   Math.floor(pageIndex / maxPaginatorPageLinks) * maxPaginatorPageLinks;
 
   return loading ? (
     <Spinner animation="border" />
@@ -62,7 +61,21 @@ const DataTable = ({
           <ArrowRepeat />
         </Button>
       </ButtonGroup>
-      {/* {paginate && <Paginator />} */}
+      {/* {paginate && (
+        <Paginator
+          {...{
+            pageIndex,
+            pageCount,
+            canNextPage,
+            nextPage,
+            gotoPage,
+            canPreviousPage,
+            previousPage,
+            paginatorOffset,
+            maxPaginatorPageLinks,
+          }}
+        />
+      )} */}
       <Table {...{ striped, bordered, hover }} {...props} {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

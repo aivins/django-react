@@ -31,23 +31,7 @@ export {
   AthletesPage,
   SportsPage,
 };
-export default {
-  App,
-  Button,
-  Heading,
-  CountriesPage,
-  Page,
-  Countries,
-  DataTable,
-  ColumnToggle,
-  Navbar,
-  Medals,
-  Athletes,
-  Sports,
-  MedalsPage,
-  AthletesPage,
-  SportsPage,
-};
+
 window.components = {
   App,
   Button,

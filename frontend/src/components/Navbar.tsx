@@ -12,7 +12,6 @@ const CustomNavbar = () => (
     <div
       style={{
         backgroundColor: "#dd5900",
-        padding: 0,
         padding: "10px 0 0 10px",
       }}
     >
