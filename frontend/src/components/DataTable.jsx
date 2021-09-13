@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import { ArrowRepeat } from "react-bootstrap-icons";
 import ColumnToggle from "./ColumnToggle";
+import Paginator from "./Paginator";
 
 const DataTable = ({
   data = [],
@@ -61,7 +62,7 @@ const DataTable = ({
           <ArrowRepeat />
         </Button>
       </ButtonGroup>
-      {paginate && <Paginator />}
+      {/* {paginate && <Paginator />} */}
       <Table {...{ striped, bordered, hover }} {...props} {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

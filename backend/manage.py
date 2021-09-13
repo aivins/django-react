@@ -3,6 +3,7 @@
 import os
 import sys
 
+os.environ['DJANGO_DEBUG'] = '1'
 
 def main():
     """Run administrative tasks."""
