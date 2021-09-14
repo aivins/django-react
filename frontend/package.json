@@ -4,7 +4,8 @@
     "django": "yarn run relay && parcel serve --hmr-port 9999 index-django.html",
     "typecheck": "yarn run relay && tsc --noEmit",
     "relay": "relay-compiler --language typescript --schema schema.graphql --src ./src/ $@",
-    "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write 'src/**/*.(js|jsx|ts|tsx)'"
   },
   "dependencies": {
     "@apollo/client": "^3.4.7",
@@ -35,6 +36,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "parcel": "^2.0.0-rc.0",
+    "prettier": "^2.4.0",
     "relay-compiler": "^12.0.0",
     "relay-compiler-language-typescript": "^14.1.0",
     "typescript": "^4.4.3"
