@@ -1,4 +1,3 @@
-import React from "react";
 import graphql from "babel-plugin-relay/macro";
 import { usePreloadedQuery } from "react-relay/hooks";
 import { loadQuery } from "../environment";
@@ -20,7 +19,7 @@ const query = graphql`
 
 const preloaded = loadQuery(query, {});
 
-const Countries = ({ render }) => {
+const Countries = ({ render }): JSX.Element => {
   const data = flatten(usePreloadedQuery(query, preloaded));
 
   // const { loading, error, data, refetch } = usePreloadedQuery(COUNTRIES, {
