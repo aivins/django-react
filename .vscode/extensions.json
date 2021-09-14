@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-azuretools.vscode-docker",
+    "bibhasdn.django-html",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode"
+  ]
+}

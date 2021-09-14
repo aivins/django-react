@@ -2,7 +2,7 @@ const isObject = (obj) => {
   return obj !== null && typeof obj === "object" && !Array.isArray(obj);
 };
 
-const flatten = (input) => {
+const flatten = (input): any => {
   if (!input) return null;
   const output = {};
 

@@ -20,7 +20,7 @@ const query = graphql`
 
 const preloaded = loadQuery(query, {});
 
-const Countries = ({ render, preloadedQuery }) => {
+const Countries = ({ render }) => {
   const data = flatten(usePreloadedQuery(query, preloaded));
 
   // const { loading, error, data, refetch } = usePreloadedQuery(COUNTRIES, {
