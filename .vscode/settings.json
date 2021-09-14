@@ -9,6 +9,6 @@
     "poetry.lock": true
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "editor.acceptSuggestionOnCommitCharacter": false
 }

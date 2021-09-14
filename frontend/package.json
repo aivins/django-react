@@ -35,6 +35,7 @@
     "babel-plugin-relay": "^12.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-relay": "^1.8.2",
     "parcel": "^2.0.0-rc.0",
     "prettier": "^2.4.0",
     "relay-compiler": "^12.0.0",

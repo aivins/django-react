@@ -4,6 +4,7 @@
     "ms-azuretools.vscode-docker",
     "bibhasdn.django-html",
     "eamodio.gitlens",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "rvest.vs-code-prettier-eslint"
   ]
 }
