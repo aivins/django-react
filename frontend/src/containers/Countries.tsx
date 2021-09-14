@@ -1,32 +1,21 @@
 import graphql from "babel-plugin-relay/macro";
-import { usePreloadedQuery } from "react-relay/hooks";
-import { loadQuery } from "../environment";
-import { flatten } from "../lib/utils";
+import Countries from "../components/Countries";
+import withLazyLoadQuery from "../lib/withLazyLoadQuery";
 
-const query = graphql`
-  query CountriesQuery {
-    countries {
-      edges {
-        node {
-          id
-          name
-          code
+export default withLazyLoadQuery(
+  Countries,
+  graphql`
+    query CountriesQuery {
+      countries {
+        edges {
+          node {
+            id
+            name
+            code
+          }
         }
       }
     }
-  }
-`;
-
-const preloaded = loadQuery(query, {});
-
-const Countries = ({ render }): JSX.Element => {
-  const data = flatten(usePreloadedQuery(query, preloaded));
-
-  // const { loading, error, data, refetch } = usePreloadedQuery(COUNTRIES, {
-  //   notifyOnNetworkStatusChange: true,
-  // });
-  return render({ data: data?.countries });
-  // return <h1>Maybe loaded some stuff</h1>;
-};
-
-export default Countries;
+  `,
+  {}
+);

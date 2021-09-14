@@ -1,12 +1,11 @@
 import React from "react";
 
 import Page from "./Page";
-import Countries from "./Countries";
-import CountriesContainer from "../containers/Countries";
+import Countries from "../containers/Countries";
 
-const CountriesPage = () => (
+const CountriesPage = (): React.ReactNode => (
   <Page title="List of Countries">
-    <CountriesContainer render={(props) => <Countries {...props} />} />
+    <Countries />
   </Page>
 );
 

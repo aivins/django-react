@@ -1,12 +1,6 @@
 import React from "react";
 import { useTable, useSortBy, usePagination } from "react-table";
-import {
-  Table,
-  Spinner,
-  ButtonGroup,
-  Button,
-  Pagination,
-} from "react-bootstrap";
+import { Table, Spinner, ButtonGroup, Button } from "react-bootstrap";
 import { ArrowRepeat } from "react-bootstrap-icons";
 import ColumnToggle from "./ColumnToggle";
 import Paginator from "./Paginator";
@@ -39,7 +33,7 @@ const DataTable = ({
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex },
+    state: { pageIndex }
   } = useTable(
     { columns, data, initialState: { pageIndex: 0, pageSize } },
     useSortBy,
@@ -72,7 +66,7 @@ const DataTable = ({
             canPreviousPage,
             previousPage,
             paginatorOffset,
-            maxPaginatorPageLinks,
+            maxPaginatorPageLinks
           }}
         />
       )}

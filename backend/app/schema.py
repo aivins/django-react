@@ -78,8 +78,9 @@ class Query(graphene.ObjectType):
     # def resolve_country(root, info, id):
     #     return models.Country.objects.get(id=id)
     
-    # def resolve_countries(root, info):
-    #     return models.Country.objects.all()
+    def resolve_countries(root, info):
+        time.sleep(2)
+        return models.Country.objects.all()
 
     # def resolve_medal(root, info, id):
     #     return models.Medal.objects.get(id=id)
