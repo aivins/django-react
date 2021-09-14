@@ -1,8 +1,12 @@
+import { OperationType } from "relay-runtime";
+
 const isObject = (obj) => {
   return obj !== null && typeof obj === "object" && !Array.isArray(obj);
 };
 
-const flatten = (input): any => {
+const flatten = <TQuery extends OperationType>(
+  input: TQuery["response"]
+): TQuery["response"] => {
   if (!input) return null;
   const output = {};
 
