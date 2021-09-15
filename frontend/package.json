@@ -5,7 +5,9 @@
     "typecheck": "yarn run relay && tsc --noEmit",
     "relay": "relay-compiler --language typescript --schema schema.graphql --src ./src/ $@",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "format": "prettier --write 'src/**/*.(js|jsx|ts|tsx)'"
+    "format": "prettier --write 'src/**/*.(js|jsx|ts|tsx)'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@apollo/client": "^3.4.7",
@@ -26,12 +28,17 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/react": "^6.3.8",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "@types/react-relay": "^11.0.2",
     "@types/relay-runtime": "^11.0.4",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
+    "babel-loader": "^8.2.2",
     "babel-plugin-relay": "^12.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
