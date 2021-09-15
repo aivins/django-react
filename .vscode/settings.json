@@ -8,7 +8,16 @@
     "yarn.lock": true,
     "poetry.lock": true
   },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "editor.insertSpaces": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-  "editor.acceptSuggestionOnCommitCharacter": false
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "graphql-config.load.rootDir": "./frontend",
+  "vscode-graphql.useSchemaFileDefinitions": true,
+  "vscode-graphql.debug": true,
+  "prettier.prettierPath": "./frontend/node_modules/prettier",
+  
 }

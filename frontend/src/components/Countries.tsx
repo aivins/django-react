@@ -5,27 +5,23 @@ import CountryFlag from "./CountryFlag";
 const columns = [
   {
     Header: "Country",
-    accessor: "node.name"
+    accessor: "name"
   },
   {
     Header: "Flag",
-    accessor: "node.country.node.name",
-    Cell: ({ row }) => <CountryFlag code={row.original.node.code} />
+    Cell: ({ row }) => <CountryFlag code={row.original.code} />
   },
   {
     Header: "Country Code",
-    accessor: "node.code"
+    accessor: "code"
   }
 ];
-
 interface CountriesProps {
-  countries: {
-    edges: [];
-  };
+  countries: [];
 }
 
-const Countries: React.FC<CountriesProps> = (props: CountriesProps) => {
-  return <DataTable data={props.countries.edges} columns={columns} />;
+const Countries = (props: CountriesProps): JSX.Element => {
+  return <DataTable data={props.countries} columns={columns} />;
 };
 
 export default Countries;
