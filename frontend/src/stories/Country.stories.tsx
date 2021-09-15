@@ -14,12 +14,11 @@ export default {
 const CountryWrapper = ({ name, code, environment }) => {
   environment.mock.queueOperationResolver((operation) => {
     return MockPayloadGenerator.generate(operation, {
-      CountryNode: (...args) => {
-        console.log("mockResolver args", args);
+      CountryNode: () => {
         return {
           id: "Q291bnRyeU5vZGU6MQ==",
-          name: name,
-          code: code
+          name,
+          code
         };
       }
     });
@@ -50,6 +49,19 @@ Australia.args = {
   code: "AU"
 };
 Australia.parameters = {
+  docs: {
+    source: {
+      code: "Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554"
+    }
+  }
+};
+
+export const GreatBritain = Template.bind({});
+GreatBritain.args = {
+  name: "Great Britain",
+  code: "GB"
+};
+GreatBritain.parameters = {
   docs: {
     source: {
       code: "Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554"
