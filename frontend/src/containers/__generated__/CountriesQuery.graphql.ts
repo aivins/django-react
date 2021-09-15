@@ -30,8 +30,14 @@ fragment Countries_edges on CountryNodeConnection {
       id
       name
       code
+      ...Country_node
     }
   }
+}
+
+fragment Country_node on CountryNode {
+  name
+  code
 }
 */
 
@@ -125,12 +131,12 @@ const node: ConcreteRequest = {
     ]
   },
   "params": {
-    "cacheID": "3e910a5233e2bb133971cbcd7f08a005",
+    "cacheID": "a76a426cecec84ed21b67025c3f024d7",
     "id": null,
     "metadata": {},
     "name": "CountriesQuery",
     "operationKind": "query",
-    "text": "query CountriesQuery {\n  countries {\n    ...Countries_edges\n  }\n}\n\nfragment Countries_edges on CountryNodeConnection {\n  edges {\n    node {\n      id\n      name\n      code\n    }\n  }\n}\n"
+    "text": "query CountriesQuery {\n  countries {\n    ...Countries_edges\n  }\n}\n\nfragment Countries_edges on CountryNodeConnection {\n  edges {\n    node {\n      id\n      name\n      code\n      ...Country_node\n    }\n  }\n}\n\nfragment Country_node on CountryNode {\n  name\n  code\n}\n"
   }
 };
 (node as any).hash = '8d87bcc372db9d2cca43462969fec1b8';

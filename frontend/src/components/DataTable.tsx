@@ -5,20 +5,39 @@ import { ArrowRepeat } from "react-bootstrap-icons";
 import ColumnToggle from "./ColumnToggle";
 import Paginator from "./Paginator";
 
-const DataTable = ({
-  data = [],
-  columns = [],
-  striped = false,
-  bordered = true,
-  hover = true,
-  sortable = true,
-  loading = false,
-  refetch = () => {
-    console.log("No refetch function");
-  },
-  pageSize = 10,
-  ...props
-}) => {
+export interface RowClickFunction {
+  (row: any): void;
+}
+
+interface DataTableProps {
+  data?: any[];
+  columns?: any[];
+  striped?: boolean;
+  bordered?: boolean;
+  hover?: boolean;
+  sortable?: boolean;
+  loading?: boolean;
+  refetch?: () => void;
+  onRowClick?: RowClickFunction;
+  pageSize?: number;
+}
+
+const DataTable = (props: DataTableProps): JSX.Element => {
+  const {
+    data = [],
+    columns = [],
+    striped = false,
+    bordered = true,
+    hover = true,
+    sortable = true,
+    loading = false,
+    refetch = () => {
+      console.log("No refetch function");
+    },
+    onRowClick = () => {},
+    pageSize = 10
+  } = props;
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -32,7 +51,6 @@ const DataTable = ({
     gotoPage,
     nextPage,
     previousPage,
-    setPageSize,
     state: { pageIndex }
   } = useTable(
     { columns, data, initialState: { pageIndex: 0, pageSize } },
@@ -70,7 +88,7 @@ const DataTable = ({
           }}
         />
       )}
-      <Table {...{ striped, bordered, hover }} {...props} {...getTableProps()}>
+      <Table {...{ striped, bordered, hover }} {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -99,7 +117,10 @@ const DataTable = ({
             prepareRow(row);
 
             return (
-              <tr {...row.getRowProps()}>
+              <tr
+                {...row.getRowProps()}
+                onClick={() => onRowClick(row.original)}
+              >
                 {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>

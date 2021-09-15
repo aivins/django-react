@@ -10,6 +10,7 @@ export type Countries_edges = {
             readonly id: string;
             readonly name: string;
             readonly code: string;
+            readonly " $fragmentRefs": FragmentRefs<"Country_node">;
         } | null;
     } | null>;
     readonly " $refType": "Countries_edges";
@@ -64,6 +65,11 @@ const node: ReaderFragment = {
               "kind": "ScalarField",
               "name": "code",
               "storageKey": null
+            },
+            {
+              "args": null,
+              "kind": "FragmentSpread",
+              "name": "Country_node"
             }
           ],
           "storageKey": null
@@ -75,5 +81,5 @@ const node: ReaderFragment = {
   "type": "CountryNodeConnection",
   "abstractKey": null
 };
-(node as any).hash = '621d89796138c74fba5a680407bca49d';
+(node as any).hash = 'c03e6c3cf523e0f33e08de399e1d5c44';
 export default node;

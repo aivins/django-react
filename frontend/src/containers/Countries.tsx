@@ -1,27 +1,17 @@
 import graphql from "babel-plugin-relay/macro";
-import Countries from "../components/Countries";
-import withLazyLoadQuery from "../lib/withLazyLoadQuery";
+import CountriesComponent, { CountriesProps } from "../components/Countries";
+import { withLazyLoadQuery } from "../lib/";
 
-// const fragment = graphql`
-//   fragment Countries_edges on CountryNodeConnection {
-//     edges {
-//       node {
-//         id
-//         name
-//         code
-//       }
-//     }
-//   }
-// `;
+const Countries = withLazyLoadQuery<CountriesProps>(
+  CountriesComponent,
+  graphql`
+    query CountriesQuery {
+      countries {
+        ...Countries_edges
+      }
+    }
+  `,
+  {}
+);
 
-// export default withLazyLoadQuery(
-//   Countries,
-//   graphql`
-//     query CountriesQuery {
-//       countries {
-//         ...Countries_edges
-//       }
-//     }
-//   `,
-//   {}
-// );
+export default Countries;

@@ -23,4 +23,4 @@ const flatten = <TQuery extends OperationType>(
   return output;
 };
 
-export { flatten };
+export default flatten;
