@@ -3,10 +3,18 @@ import time
 from graphene import relay
 from graphene_django import DjangoObjectType, DjangoListField
 from graphene_django.filter import DjangoFilterConnectionField
-from graphene.types import Field
+from graphene.types import Field, Int
 
 from app import models
 
+class CountableConnection(relay.Connection):
+    class Meta:
+        abstract = True
+
+    total_count = Int()
+
+    def resolve_total_count(self, info, **kwargs):
+        return self.iterable.count()
 
 class MedalNode(DjangoObjectType):
     class Meta:
@@ -16,6 +24,7 @@ class MedalNode(DjangoObjectType):
             'medal': ['exact', 'icontains', 'istartswith']
         }
         interfaces = (relay.Node, )
+        connection_class = CountableConnection
 
 
 class AthleteNode(DjangoObjectType):
@@ -26,6 +35,7 @@ class AthleteNode(DjangoObjectType):
             'name': ['exact', 'icontains', 'istartswith']
         }
         interfaces = (relay.Node, )
+        connection_class = CountableConnection
 
 
 class CountryNode(DjangoObjectType):
@@ -36,6 +46,7 @@ class CountryNode(DjangoObjectType):
             'name': ['exact', 'icontains', 'istartswith']
         }
         interfaces = (relay.Node, )
+        connection_class = CountableConnection
 
 
 class SportNode(DjangoObjectType):
@@ -46,6 +57,7 @@ class SportNode(DjangoObjectType):
             'name': ['exact', 'icontains', 'istartswith']
         }
         interfaces = (relay.Node, )
+        connection_class = CountableConnection
 
 
 class EventNode(DjangoObjectType):
@@ -56,6 +68,7 @@ class EventNode(DjangoObjectType):
             'sport__name': ['exact', 'icontains', 'istartswith']
         }
         interfaces = (relay.Node, )
+        connection_class = CountableConnection
 
 
 class Query(graphene.ObjectType):
