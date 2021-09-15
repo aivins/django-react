@@ -4,6 +4,7 @@ import { useFragment } from "react-relay/hooks";
 import CountryFlag from "./CountryFlag";
 import type { Country_node$key } from "./__generated__/Country_node.graphql";
 
+export type { Country_node$key };
 export interface CountryProps {
   country: Country_node$key;
 }
