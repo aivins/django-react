@@ -5,6 +5,10 @@ import graphql from "babel-plugin-relay/macro";
 import { useLazyLoadQuery } from "react-relay/hooks";
 import { MockPayloadGenerator } from "relay-test-utils";
 import { Country, CountryProps } from "../components";
+import useMockedFragment from "./useMockedFragment";
+import withMockedFragment from "./withMockedFragment";
+
+// const CountryWrapper = withMockedFragment
 
 export default {
   title: "Country",
@@ -12,8 +16,9 @@ export default {
 } as ComponentMeta<typeof Country>;
 
 const CountryWrapper = ({ name, code, environment }) => {
-  environment.mock.queueOperationResolver((operation) => {
-    return MockPayloadGenerator.generate(operation, {
+  const data = useMockedFragment<CountryProps>(
+    environment,
+    {
       CountryNode: () => {
         return {
           id: "Q291bnRyeU5vZGU6MQ==",
@@ -21,19 +26,15 @@ const CountryWrapper = ({ name, code, environment }) => {
           code
         };
       }
-    });
-  });
-
-  const data = useLazyLoadQuery(
+    },
     graphql`
       query CountryQuery {
         country(id: "Q291bnRyeU5vZGU6MQ==") {
           ...Country_node
         }
       }
-    `,
-    {}
-  ) as CountryProps;
+    `
+  );
 
   return <Country {...data} />;
 };
