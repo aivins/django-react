@@ -6,7 +6,6 @@ import { Styles } from "../src/containers";
 const { Suspense } = React;
 
 const RelayEnvironmentDecorator = (Story) => {
-  console.log("RelayEnvironmentDecorator");
   const environment = createMockEnvironment();
   return (
     <RelayEnvironmentProvider environment={environment}>
@@ -18,7 +17,6 @@ const RelayEnvironmentDecorator = (Story) => {
 };
 
 const StyleDecorator = (Story) => {
-  console.log("StyleDecorator");
   return (
     <Styles>
       <Story />
