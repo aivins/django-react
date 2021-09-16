@@ -9,6 +9,10 @@ import type { Countries_edges$key } from "./__generated__/Countries_edges.graphq
 
 const columns = [
   {
+    Header: "ID",
+    accessor: "id"
+  },
+  {
     Header: "Country",
     accessor: "name"
   },
