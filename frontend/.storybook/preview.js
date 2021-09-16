@@ -1,5 +1,5 @@
 import "@storybook/addon-console";
-import { RelayEnvironmentDecorator } from "./decorators";
+import { StyleDecorator, RelayEnvironmentDecorator } from "./decorators";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -11,4 +11,5 @@ export const parameters = {
   },
 };
 
-export const decorators = [RelayEnvironmentDecorator];
+// decorators wrap each other in the order listed below
+export const decorators = [RelayEnvironmentDecorator, StyleDecorator];
