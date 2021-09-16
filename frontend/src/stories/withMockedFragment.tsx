@@ -7,18 +7,24 @@ interface MockedFragmentComponentProps {
 }
 
 const withMockedFragment = <
+  ComponentProps,
   T extends MockedFragmentComponentProps = MockedFragmentComponentProps
 >(
-  Component: React.ComponentType<T>,
+  Component: React.ComponentType<ComponentProps>,
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   mockResolver: any,
   query: GraphQLTaggedNode,
   variables = {}
 ): React.FC<T> => {
   const WrapperComponent = (props: T): JSX.Element => {
-    const { environment } = props;
-    const data = useMockedFragment(environment, mockResolver, query, variables);
-    return <Component {...data} {...(props as T)} />;
+    const { environment, ...args } = props;
+    const data = useMockedFragment(
+      environment,
+      mockResolver(args),
+      query,
+      variables
+    );
+    return <Component {...(data as ComponentProps)} />;
   };
 
   const displayName = Component.displayName || Component.name || "Component";
