@@ -10,7 +10,8 @@ const useMockedFragment = <TProps>(
   variables = {}
 ): TProps => {
   environment.mock.queueOperationResolver((operation) => {
-    return MockPayloadGenerator.generate(operation, mockResolver);
+    const payload = MockPayloadGenerator.generate(operation, mockResolver);
+    return payload;
   });
 
   return useLazyLoadQuery(query, variables) as TProps;

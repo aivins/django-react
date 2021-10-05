@@ -19,6 +19,7 @@ type AthleteNode implements Node {
 type AthleteNodeConnection {
   pageInfo: PageInfo!
   edges: [AthleteNodeEdge]!
+  totalCount: Int
 }
 
 type AthleteNodeEdge {
@@ -36,6 +37,7 @@ type CountryNode implements Node {
 type CountryNodeConnection {
   pageInfo: PageInfo!
   edges: [CountryNodeEdge]!
+  totalCount: Int
 }
 
 type CountryNodeEdge {
@@ -57,6 +59,7 @@ type EventNode implements Node {
 type EventNodeConnection {
   pageInfo: PageInfo!
   edges: [EventNodeEdge]!
+  totalCount: Int
 }
 
 type EventNodeEdge {
@@ -80,6 +83,7 @@ type MedalNode implements Node {
 type MedalNodeConnection {
   pageInfo: PageInfo!
   edges: [MedalNodeEdge]!
+  totalCount: Int
 }
 
 type MedalNodeEdge {
@@ -119,6 +123,7 @@ type SportNode implements Node {
 type SportNodeConnection {
   pageInfo: PageInfo!
   edges: [SportNodeEdge]!
+  totalCount: Int
 }
 
 type SportNodeEdge {

@@ -27,7 +27,6 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "graphql-config.load.rootDir": "./frontend",
   "vscode-graphql.useSchemaFileDefinitions": true,
-  "vscode-graphql.debug": true,
   "prettier.prettierPath": "./frontend/node_modules/prettier",
   
 }
