@@ -18,6 +18,9 @@ import {
 } from "react-relay/hooks";
 
 async function fetchRelay(params, variables) {
+  console.log(
+    `fetching query ${params.name} with ${JSON.stringify(variables)}`
+  );
   return fetchGraphQL(params.text, variables);
 }
 
