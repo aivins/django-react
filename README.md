@@ -38,7 +38,7 @@ poetry run ./manage.py install_fixtures
 poetry run ./manage.py runserver 0.0.0.0:8001
 ```
 
-GraphiQL will be available on http://0.0.0.0:8001/graphql
+GraphiQL will be available on http://127.0.0.1:8001/graphql
 
 ## Run backend with docker
 
