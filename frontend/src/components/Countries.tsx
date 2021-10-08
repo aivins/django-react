@@ -52,13 +52,13 @@ const Countries = (props: CountriesProps): JSX.Element => {
     selectCountry(null);
   };
 
-  const handleRowClick = (row) => {
+  const handleRowClick = row => {
     selectCountry(row);
   };
 
   const countries = data.edges
-    .map((edge) => edge.node)
-    .map((node) => ({ id: node.id, name: node.name, code: node.code }));
+    .map(edge => edge.node)
+    .map(node => ({ id: node.id, name: node.name, code: node.code }));
 
   return (
     <>
